@@ -1,9 +1,9 @@
 import fs from 'fs';
 
-export abstract class CsvReader<T> {
+export abstract class CsvFileReader<T> {
   data: T[] = [];
 
-  constructor(public filename: string) {}
+  constructor(public filename: string) { }
 
   read(): void {
     this.data = fs
