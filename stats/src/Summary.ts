@@ -1,3 +1,5 @@
+import { WinsAnalysis } from './analyzers/WinsAnalysis';
+import { HtmlReport } from './reportTargets/HtmlReport';
 import { MatchData } from './MatchData';
 
 export interface Analyzer {
@@ -9,6 +11,13 @@ export interface OutputTarget {
 }
 
 export class Summary {
+  static winsAnalysisWithHtmlReport(team: string) {
+    return new Summary(
+      new WinsAnalysis(team),
+      new HtmlReport(),
+    );
+  }
+
   constructor(public analyzer: Analyzer, public outputTarget: OutputTarget) { }
 
   buildAndPrintReport(matches: MatchData[]): void {
