@@ -4,11 +4,15 @@
   "description": "Web",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html"
+    "dev:parcel": "parcel index.html",
+    "dev:db": "json-server -w db.json"
   },
   "author": "alan-maldonado",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
   }
 }
