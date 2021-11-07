@@ -12,7 +12,7 @@ export class User {
   public events: Eventing = new Eventing();
   constructor(private data: UserProps) {}
 
-  get(propName: string): (number | string) {
+  get(propName: string): number | string {
     return this.data[propName];
   }
 
@@ -21,13 +21,14 @@ export class User {
   }
 
   fetch(): void {
-    axios.get(`http://localhost:3000/users/${this.get('id')}`)
+    axios
+      .get(`http://localhost:3000/users/${this.get('id')}`)
       .then((response: AxiosResponse): void => {
         this.set(response.data);
       });
   }
 
-  void(): void {
+  save(): void {
     const id = this.get('id');
     if (id) {
       axios.put(`http://localhost:3000/users/${id}`, this.data);
