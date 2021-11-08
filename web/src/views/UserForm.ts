@@ -4,7 +4,12 @@ export class UserForm {
   eventsMap(): { [key: string]: () => void } {
     return {
       'click:button': this.onButtonClick,
+      'mouseenter:h1': this.onMouseEnter,
     };
+  }
+
+  onMouseEnter(): void {
+    console.log('H1 was hovered over');
   }
 
   onButtonClick(): void {
